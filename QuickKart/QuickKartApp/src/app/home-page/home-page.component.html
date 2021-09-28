@@ -1,0 +1,39 @@
+<div>
+
+  <p>Viewing Products</p>
+  <div>
+    <table class="table" style="border:5px solid rgba(220,230,242,1);" *ngIf="products; else elseBlock">
+      <tr style="background-color:rgba(220,230,242,1); font-size:15pt;">
+        <th style="text-align:center;">Product Id</th>
+        <th style="text-align:center;">Product Name</th>
+        <th style="text-align:center;">Category Id</th>
+        <th style="text-align:center;">Price</th>
+        <th style="text-align:center;">Quantity Available</th>
+        <th style="text-align:center;">Action</th>
+      </tr>
+
+      <tr *ngFor="let product of products" style="background-color:white;text-align:center; font-size:12pt;">
+        <td>{{product.productId}}</td>
+        <td>{{product.productName}}</td>
+        <td>{{product.categoryId}}</td>
+        <td>{{product.price}}</td>
+        <td>{{product.quantityAvailable}}</td>
+        <td class="Add to Cart"><button>Add to Cart</button></td>
+      </tr>
+    </table>
+
+    <div>
+      <ng-template #elseBlock>
+        <div>
+          <h4 class="jumbotron" style="text-align:center;">{{showMsg}}</h4>
+        </div>
+      </ng-template>
+    </div>
+
+    <!--<div>
+      <button style="background-color:aqua;" (click)='getProducts()'>Click to get All Products list</button>
+    </div>-->
+
+  </div>
+  
+</div>
